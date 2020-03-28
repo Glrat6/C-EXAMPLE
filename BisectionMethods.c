@@ -1,9 +1,11 @@
+// Bisection Methodu ile 3. dereceden denklemlerin kÃ¶k deÄŸerini hesaplar.
+
 #include<stdio.h>
 #include<math.h>
  double BisectionMethod();
 int main(){
 	
-	printf("%f",BisectionMethod() ); // BisectionMethod fonksiyonunun çıktısını ekrana yazdırır.
+	printf("%f",BisectionMethod() ); // BisectionMethod fonksiyonunun Ã§Ä±ktÄ±sÄ±nÄ± ekrana yazdÄ±rÄ±r.
 	
 	return 0;
 }
@@ -14,7 +16,7 @@ double BisectionMethod()
 	float tolerans=0.0;
 
 	
-	printf("x3'lu terimin katsayisini giriniz: ",a3); // 3. dereceden denklemin katsayıları klavyeden alınır.
+	printf("x3'lu terimin katsayisini giriniz: ",a3); // 3. dereceden denklemin katsayÄ±larÄ± klavyeden alÄ±nÄ±r.
 	 scanf("%d",&a3);
 	printf("x2'li terimin katsayisini giriniz: ",a2);
 	 scanf("%d",&a2);
@@ -22,35 +24,35 @@ double BisectionMethod()
 	 scanf("%d",&a1);
 	printf("x0'li terimin katsayisini giriniz: ",a0);
 	 scanf("%d",&a0);
-	printf("Araligin alt degerini Giriniz:",alt); // Fonksiyonun sürekli olduğu aralığın alt değeri alınır.
+	printf("Araligin alt degerini Giriniz:",alt); // Fonksiyonun sÃ¼rekli olduÄŸu aralÄ±ÄŸÄ±n alt deÄŸeri alÄ±nÄ±r.
 	 scanf("%f",&alt);
-	printf("Araligin ust degerini Giriniz:",ust); // Hralığın üst değerini alır
+	printf("Araligin ust degerini Giriniz:",ust); // HralÄ±ÄŸÄ±n Ã¼st deÄŸerini alÄ±r
 	 scanf("%f",&ust);
-	printf("tolerans degeri giriniz:",tolerans); // Hata payı klavyeden alınır
+	printf("tolerans degeri giriniz:",tolerans); // Hata payÄ± klavyeden alÄ±nÄ±r
 	 scanf("%f",&tolerans);
  
-         f1 = a3*pow(alt,3)+a2*pow(alt,2)+a1*pow(alt,1)+a0*pow(alt,0);     // Aralığın alt değeri için y hesaplanır
-         f3 = a3*pow(ust,3)+a2*pow(ust,2)+a1*pow(ust,1)+a0*pow(ust,0);    //Aralığın üst değeri için y hesaplanır
+         f1 = a3*pow(alt,3)+a2*pow(alt,2)+a1*pow(alt,1)+a0*pow(alt,0);     // AralÄ±ÄŸÄ±n alt deÄŸeri iÃ§in y hesaplanÄ±r
+         f3 = a3*pow(ust,3)+a2*pow(ust,2)+a1*pow(ust,1)+a0*pow(ust,0);    //AralÄ±ÄŸÄ±n Ã¼st deÄŸeri iÃ§in y hesaplanÄ±r
          
-         if(f1*f3<0) // Eğer 2 değerin çarpımı 0 dan küçük ise kök vardır 
+         if(f1*f3<0) // EÄŸer 2 deÄŸerin Ã§arpÄ±mÄ± 0 dan kÃ¼Ã§Ã¼k ise kÃ¶k vardÄ±r 
 		 {
          	do{
-         		 x= (alt+ust)/2;										// Alt ve üst degerin orta noktası bulunur
-                 f2 = a3*pow(x,3)+a2*pow(x,2)+a1*pow(x,1)+a0*pow(x,0);      // Orta nokta için y değeri hesaplanır
-                 if(f1*f2<0) // Başlangıç noktası ile orta nokta araasında kök olup olmadığı kontrol edilir
+         		 x= (alt+ust)/2;										// Alt ve Ã¼st degerin orta noktasÄ± bulunur
+                 f2 = a3*pow(x,3)+a2*pow(x,2)+a1*pow(x,1)+a0*pow(x,0);      // Orta nokta iÃ§in y deÄŸeri hesaplanÄ±r
+                 if(f1*f2<0) // BaÅŸlangÄ±Ã§ noktasÄ± ile orta nokta araasÄ±nda kÃ¶k olup olmadÄ±ÄŸÄ± kontrol edilir
                  {
-                 	ust=x;  // Kök var ise orta noktamız üst değere atanır başlangıç noktamız ve orta noktamız arasında kök değeri aranır
+                 	ust=x;  // KÃ¶k var ise orta noktamÄ±z Ã¼st deÄŸere atanÄ±r baÅŸlangÄ±Ã§ noktamÄ±z ve orta noktamÄ±z arasÄ±nda kÃ¶k deÄŸeri aranÄ±r
                  	f3=f2;
 				 }
 				 else
 				 {
-				 	alt=x; // Değilse başlangıç noktamıza orta noktayı atarız orta değer ile üst değer arasında kök ararız
+				 	alt=x; // DeÄŸilse baÅŸlangÄ±Ã§ noktamÄ±za orta noktayÄ± atarÄ±z orta deÄŸer ile Ã¼st deÄŸer arasÄ±nda kÃ¶k ararÄ±z
 				 	f1=f2;
-				 }               // Sürekli orta nokta bulma işlemi while içinde  0 değerine ulaşana dek veya belirlediğimiz tolerans aralığına yaklaşana kadar devam eder
+				 }               // SÃ¼rekli orta nokta bulma iÅŸlemi while iÃ§inde  0 deÄŸerine ulaÅŸana dek veya belirlediÄŸimiz tolerans aralÄ±ÄŸÄ±na yaklaÅŸana kadar devam eder
 			
-	    	 } while(fabs(f2)>tolerans);  // Sürekli bölünen değer x'e atandığından değişkeni x olan f2 fonksiyou mutlak değer içine alınır. hata payı ile kıyaslanır
+	    	 } while(fabs(f2)>tolerans);  // SÃ¼rekli bÃ¶lÃ¼nen deÄŸer x'e atandÄ±ÄŸÄ±ndan deÄŸiÅŸkeni x olan f2 fonksiyou mutlak deÄŸer iÃ§ine alÄ±nÄ±r. hata payÄ± ile kÄ±yaslanÄ±r
         } else
-        printf("\nkOK YOKTUR!\n"); // Belirtilen aralıkta kök değeri yoksa ekrana kök yoktur yazdırır.
+        printf("\nkOK YOKTUR!\n"); // Belirtilen aralÄ±kta kÃ¶k deÄŸeri yoksa ekrana kÃ¶k yoktur yazdÄ±rÄ±r.
         
-      return x; // Fonksiyon main'e kök değerini döndürür.
+      return x; // Fonksiyon main'e kÃ¶k deÄŸerini dÃ¶ndÃ¼rÃ¼r.
 }
